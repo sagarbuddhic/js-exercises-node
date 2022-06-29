@@ -1,12 +1,8 @@
-const http = require('http');
-const fs = require('fs');
+const http = require("http");
+const fs = require("fs");
 
 http
   .createServer((req, res) => {
-    console.log(`request`);
-    setImmediate(() => {
-      console.log('test');
-    });
     let limit = 10;
     let series = [];
     let nextValue;
