@@ -5,6 +5,6 @@
     "fs": "^0.0.1-security",
     "jsonexport": "^3.2.0",
     "mongodb": "^4.7.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
