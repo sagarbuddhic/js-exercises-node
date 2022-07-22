@@ -2,9 +2,9 @@ const parseObject = (data, params) => {
     let localData = data;
     let localParams = params.split('.') || [];
 
-    localParams.every((param) => {
+    localParams.some((param) => {
         localData = localData[param];
-        return localData !== undefined;
+        return localData === undefined;
     });
     return localData;
 }
