@@ -6,8 +6,6 @@ const biggestNumber = (numbers) => {
     const ab = `${aString}${bString}`;
     const ba = `${bString}${aString}`;
 
-    console.log(ab);
-
     return ba - ab;
   });
   return numbers.join("");
