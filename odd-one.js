@@ -4,10 +4,6 @@ function filterDistinct(value, index, values) {
   return values.indexOf(value) === index;
 }
 
-function filterOdd(value, index, values) {
-  return values.indexOf(value) === values.lastIndexOf();
-}
-
 function odd(values) {
   const distinct = values.filter(filterDistinct);
   let oddOne;
