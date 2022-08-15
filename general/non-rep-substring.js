@@ -7,17 +7,14 @@ function nonRepsubString(str) {
         const currIndex = currString.indexOf(str[i]);
 
         if (currIndex !== -1) {
-            console.log(currIndex);
-            console.log(currString);
             currString.splice(0, currIndex + 1);
         }
 
         currString.push(str[i]);
         if (currString.length > maxLen) {
             longest = currString.join('');
+            maxLen = currString.length;
         }
-        maxLen = Math.max(maxLen, currString.length);
-
     }
     return { word: longest, max: maxLen };
 }
