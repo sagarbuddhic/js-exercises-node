@@ -1,3 +1,4 @@
+// find the difference of two dates and output them in hours, minutes and secs.
 function hms(date1, date2) {
     let dateV1 = new Date(date1);
     let dateV2 = new Date(date2);
