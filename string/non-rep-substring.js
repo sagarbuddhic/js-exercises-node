@@ -1,3 +1,5 @@
+// maximum substring without duplicate characters in a string. 
+// example 'abbbcabcdefef', max substring here is 'abcdef'
 function nonRepsubString(str) {
     let currString = [];
     let longest = '';

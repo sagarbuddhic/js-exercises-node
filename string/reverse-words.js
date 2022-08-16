@@ -1,5 +1,7 @@
+// reverse words. 
+
 function reverseWords(sentence) {
-    if(!sentence) {
+    if (!sentence) {
         return;
     }
     let words = sentence.split(' ');

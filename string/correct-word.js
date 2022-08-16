@@ -1,3 +1,6 @@
+// every letter in a word needs to be changed to next letter to get the right word. 
+// For example 'zms', next letters of z,m,s is a,n,t, So the correct word is 'ant'.
+
 function myFunction(str) {
     if (!str) {
         return;
