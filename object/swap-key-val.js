@@ -1,3 +1,4 @@
+// swap key values into another object.
 function swapKeyValues(obj) {
     let output = {};
     for ([key, value] of Object.entries(obj)) {

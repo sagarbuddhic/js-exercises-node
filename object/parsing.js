@@ -1,3 +1,5 @@
+// Given params with dots(a.b.c),
+// Find the value of property in an object({ 'a': { 'b': { 'c': 'test' } } }).
 const parseObject = (data, params) => {
     let localData = data;
     let localParams = params.split('.') || [];
@@ -9,7 +11,7 @@ const parseObject = (data, params) => {
     return localData;
 }
 
-const obj = {'a': {'b': {'c': 'test'}}};
+const obj = { 'a': { 'b': { 'c': 'test' } } };
 
 const response = parseObject(obj, 'a.b.c');
 const response1 = parseObject(obj, 'a.b.c.d');

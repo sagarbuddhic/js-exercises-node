@@ -1,3 +1,4 @@
+// update an object by updating empty string values to null.
 function emptyStringToNull(obj) {
     let output = obj;
     for ([key, value] of Object.entries(output)) {
