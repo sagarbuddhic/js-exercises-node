@@ -9,16 +9,18 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
 });
-client.connect((err) => {
-  const query = { _id: "10006546" };
-  const collection = client
-    .db("sample_airbnb")
-    .collection("listingsAndReviews")
-    .find(query)
-    .toArray(function (err, result) {
-      if (err) throw err;
-      console.log(result);
-    });
+await client.connect();
 
-  //   client.close();
-});
+const db = client.db("sample_work");
+db.collection("users")
+  .find()
+  .toArray((err, results) => {
+    if (err) throw err;
+    const output = results.map((result) => ({
+      id: result.id,
+      name: result.name,
+      email: result.email,
+      gender: result.gender,
+      status: result.status,
+    }));
+  });
