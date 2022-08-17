@@ -1,3 +1,5 @@
+// An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself.
+// Example 153 = 1(cube) + 5(cube) + 3(cube)
 function isArmstrongNumber(input) {
     let number = input + '';
     let power = number.length;
@@ -9,4 +11,4 @@ function isArmstrongNumber(input) {
     return sum == input;
 }
 
-console.log(isArmstrongNumber('154'));
+console.log(isArmstrongNumber('153'));
