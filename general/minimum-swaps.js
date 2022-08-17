@@ -1,3 +1,5 @@
+// Given an array of integers, find out the minimum number of swaps required to sort an array.
+// Example: [2, 1, 4, 3], Output: 2
 function swap(arr, i, j) {
     let temp = arr[i];
     arr[i] = arr[j];
