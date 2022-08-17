@@ -1,3 +1,5 @@
+// join array of numbers to form the biggest number.
+// Example: [54, 546, 548, 60]
 const biggestNumber = (numbers) => {
   numbers.sort((a, b) => {
     const aString = a.toString();
@@ -11,5 +13,5 @@ const biggestNumber = (numbers) => {
   return numbers.join("");
 };
 
-let big = biggestNumber(process.argv.slice(2));
+let big = biggestNumber([54, 546, 548, 60]);
 console.log(big);

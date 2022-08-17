@@ -1,3 +1,6 @@
+// Filter distinct numbers in an array
+// Example: [1, 2, 2, 3, 3, 4]
+// [1, 2, 3, 4]
 const filterDistinct = (value, index, arr) => {
   return arr.indexOf(value) === index;
 };
