@@ -11,14 +11,24 @@ function isPrime(input) {
     return false;
 }
 
+function isPrimeUsingArray(input) {
+    let isPrime = [...Array(input - 1).keys()].every((divider) => {
+        if (divider > 1 && input % divider === 0) {
+            return false;
+        }
+        return true;
+    });
+    return isPrime;
+}
+
 function circularPrime(n) {
     let primeNumbers = [];
     for (let i = 2; i < n; i++) {
-        if (isPrime(i) && isPrime([...i.toString()].reverse().join(''))) {
+        if (isPrimeUsingArray(i) && isPrime([...i.toString()].reverse().join(''))) {
             primeNumbers.push(i);
         }
     }
     return primeNumbers;
 }
 
-console.log(circularPrime(100));
+console.log(circularPrime(1000));
