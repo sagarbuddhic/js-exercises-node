@@ -4,17 +4,10 @@ const fs = require("fs");
 http
   .createServer((req, res) => {
     let limit = 10;
-    let series = [];
-    let nextValue;
-    for (i = 0; i < limit; i++) {
-      nextValue = i;
-      if ([0, 1].includes(i)) {
-        series.push(nextValue);
-        continue;
-      }
-      nextValue = series[i - 1] + series[i - 2];
-      series.push(nextValue);
-    }
+    let series = [0, 1];
+    for (i = 2; i < limit; i++)
+      series.push(series[i - 1] + series[i - 2]);
+
     res.write(JSON.stringify(series));
     res.end();
   })
