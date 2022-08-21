@@ -1,3 +1,5 @@
+// kodane algorithm - sum of the contiguous subarray within a one-dimensional array of numbers that has the largest sum.
+// Example: [-1, -2, -3, -4] , Output -1
 function kodaneAlgorithm(arr) {
     let maximum;
     let maxArray;
