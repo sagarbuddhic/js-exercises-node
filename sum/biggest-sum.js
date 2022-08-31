@@ -3,10 +3,11 @@
 // Example: [3, 2, -6, 4, 0] - biggest sum - 5
 function maxSum(values) {
   if (values.length < 2) {
-    return;
+    return values[0];
   }
   let bigSlice = [];
   let sum = values[0] + values[1];
+
   for (let i = 0; i < values.length; i++) {
     for (let j = i + 1; j < values.length; j++) {
       let sliced = values.slice(i, j + 1);

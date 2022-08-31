@@ -2,7 +2,7 @@
 // Example ([12, 3, 4, 1, 6, 9], 24) - 12, 3, 9 - 24
 function tripletSum(arr, total) {
     let output = [];
-    console.log(arr);
+
     for (let i = 0; i < arr.length - 2; i++) {
         for (let j = i + 1; j < arr.length - 1; j++) {
             for (let k = j + 1; k < arr.length; k++) {
