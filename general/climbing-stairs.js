@@ -2,14 +2,10 @@
 // Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
 const climbStairs = (input) => {
-  if (input < 3) {
-    return input;
-  }
-
   let prev = 1;
-  let curr = 2;
+  let curr = 1;
 
-  for (i = 3; i <= input; i++) {
+  for (i = 0; i < input - 1; i++) {
     let temp = curr;
     curr = prev + curr;
     prev = temp;
