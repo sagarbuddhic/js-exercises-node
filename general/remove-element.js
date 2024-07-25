@@ -4,7 +4,13 @@
 // Input: nums = [3,2,2,3], val = 3
 // Output: 2, nums = [2,2,_,_]
 
+// https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+
 const removeElement = (nums, val) => {
+  while (nums.includes(val)) {
+    nums.splice(nums.indexOf(val), 1);
+  }
+
   //   let index = 0;
 
   //   for (let i = 0; i < nums.length; i++) {
@@ -16,9 +22,6 @@ const removeElement = (nums, val) => {
   //   console.log(nums);
   //   return index;
 
-  while (nums.includes(val)) {
-    nums.splice(nums.indexOf(val), 1);
-  }
   return nums.length;
 };
 
