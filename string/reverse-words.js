@@ -1,12 +1,9 @@
-// reverse words. 
+// reverse words.
 
-function reverseWords(sentence) {
-    if (!sentence) {
-        return;
-    }
-    let words = sentence.split(' ');
-    let reversed = words.map((word) => word.split('').reverse().join(''));
-    return reversed.join(' ');
+function reverseString(sentence) {
+  let words = sentence.split(" ");
+  let reversed = words.map((word) => word.split("").reverse().join(""));
+  return reversed.join(" ");
 }
 
-console.log(reverseWords('abra cada ttta'));
+console.log(reverseString("abra cada ttta"));
