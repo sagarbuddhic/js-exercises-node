@@ -1,4 +1,4 @@
-//leetcode242 ransom note
+//leetcode242 valid anagram
 
 const isAnagram = (s, t) => {
   let map = new Map();
