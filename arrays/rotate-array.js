@@ -1,6 +1,7 @@
 // Given a number as input, rotate an array that number of times.
 // Example: [1, 2, 3, 4], Output: [3, 4, 1, 2]
 // leetcode 189
+
 function rotateArray(nums, k) {
   // for (let i = 0; i < k; i++) {
   //   nums.unshift(nums.pop());

@@ -6,6 +6,8 @@
 
 // https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
 
+// leetcode27
+
 const removeElement = (nums, val) => {
   while (nums.includes(val)) {
     nums.splice(nums.indexOf(val), 1);

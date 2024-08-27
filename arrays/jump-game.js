@@ -7,6 +7,8 @@
 //Input: nums = [3,2,1,0,4]
 // Output: false
 
+// leetcode55
+
 const canJump = (nums) => {
   let can = false;
   let numsTemp = nums?.map((val) => parseInt(val));
