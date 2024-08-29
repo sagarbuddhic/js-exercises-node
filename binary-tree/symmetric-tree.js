@@ -1,3 +1,5 @@
+//leetcode101
+
 // Binary Tree Is Symmetric Javascript.
 /**
  * Definition for a binary tree node.
@@ -11,6 +13,9 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+
+import { buildTree } from "../data-structures/binary-tree-ds.js";
+
 const isSymmetric = (root) => {
   if (!root) return true;
 
@@ -30,3 +35,5 @@ var isMirror = function (root1, root2) {
     );
   }
 };
+
+console.log(isSymmetric(buildTree([1, 2, 2, 3, 4, 4, 3])));

@@ -1,28 +1,10 @@
+// leetcode20
+
 // Check if closing and opening brackets are in sequence.
 // Example - {([])} - correct sequence.
 // {{[} - wrong sequence.
 
-class Stack {
-  constructor() {
-    this.items = [];
-  }
-
-  push(item) {
-    this.items.push(item);
-  }
-
-  pop() {
-    this.items.pop();
-  }
-
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  peek() {
-    return this.items[this.items.length - 1];
-  }
-}
+import Stack from "../data-structures/stack.js";
 
 function isCorrectSequence(input) {
   if (!input) {
