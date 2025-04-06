@@ -12,6 +12,7 @@ const sortColors = (nums) => {
     else if (nums[i] === 1) blue++;
     else if (nums[i] === 2) orange++;
   }
+
   for (let i = 0; i < nums.length; i++) {
     if (i < red) nums[i] = 0;
     else if (i < blue + red) nums[i] = 1;
