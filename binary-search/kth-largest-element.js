@@ -1,38 +1,19 @@
-// Function to find the Kth largest element in the array using binary search
-function findKthLargest(arr, k) {
-  let low = Number.POSITIVE_INFINITY;
-  let high = Number.NEGATIVE_INFINITY;
+function findKthLargest(nums, k) {
+  let low = Math.min(...nums);
+  let high = Math.max(...nums);
 
-  // Find the minimum and maximum elements in the array
-  for (let i = 0; i < arr.length; i++) {
-    low = Math.min(low, arr[i]);
-    high = Math.max(high, arr[i]);
-  }
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const count = nums.reduce((acc, num) => acc + (num >= mid ? 1 : 0), 0);
 
-  // Perform binary search on the range of elements between low and high
-  while (low < high) {
-    let mid = low + Math.floor((high - low) / 2);
-    let count = 0;
-
-    // Count the number of elements greater than mid in the array
-    // if number equals mid then  it will be part of lower half.
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] > mid) {
-        count++;
-      }
-    }
-
-    // If there are at least K elements greater than mid, search the right half
     if (count >= k) {
+      x;
       low = mid + 1;
-    }
-    // Otherwise, search the left half
-    else {
-      high = mid;
+    } else {
+      high = mid - 1;
     }
   }
 
-  // Return the Kth largest element
   return high;
 }
 

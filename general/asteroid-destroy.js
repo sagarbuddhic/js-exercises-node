@@ -12,20 +12,4 @@ let asteroidsDestroyed = (mass, astroids) => {
   return true;
 };
 
-// var asteroidsDestroyed = function (mass, asteroids) {
-//     const buffer = []
-
-//     for (const asteroid of asteroids) {
-//         if (mass >= asteroid) {
-//             mass += asteroid;
-//         } else {
-//             buffer.push(asteroid);
-//         }
-//     }
-
-//     if (buffer.length === asteroids.length) return false;
-//     if (buffer.length === 0) return true;
-//     return asteroidsDestroyed(mass, buffer);
-// }
-
 console.log(asteroidsDestroyed(10, [3, 9, 19, 5, 21]));

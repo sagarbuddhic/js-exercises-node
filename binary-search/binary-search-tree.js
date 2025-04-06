@@ -1,192 +1,107 @@
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.value = value;
     this.left = null;
     this.right = null;
   }
 }
 
-class BinarySearchTree {
+class BST {
   constructor() {
     this.root = null;
   }
 
-  insert(data) {
-    var newNode = new Node(data);
+  // Insert a value
+  insert(value) {
+    const newNode = new Node(value);
 
-    if (this.root === null) {
+    if (!this.root) {
       this.root = newNode;
-    } else {
-      this.insertNode(this.root, newNode);
+      return;
     }
-  }
 
-  insertNode(node, newNode) {
-    console.log("testing", newNode.data);
-    if (newNode.data < node.data) {
-      if (node.left === null) {
-        node.left = newNode;
+    let current = this.root;
+    while (true) {
+      if (value < current.value) {
+        if (!current.left) {
+          current.left = newNode;
+          return;
+        }
+        current = current.left;
       } else {
-        this.insertNode(node.left, newNode);
-      }
-    } else {
-      if (node.right === null) {
-        node.right = newNode;
-      } else {
-        this.insertNode(node, newNode);
+        if (!current.right) {
+          current.right = newNode;
+          return;
+        }
+        current = current.right;
       }
     }
   }
 
-  remove(data) {
-    this.root = this.removeNode(this.root, data);
-  }
-
-  removeNode(node, key) {
-    if (node === null) {
-      return null;
-    } else if (key < node.data) {
-      node.left = this.removeNode(node.left, key);
-      return node;
-    } else if (key > node.data) {
-      node.right = this.removeNode(node.right, key);
-      return node;
-    } else {
-      if (node.left === null && node.right == null) {
-        node = null;
-        return node;
-      }
-
-      if (node.left === null) {
-        node = node.right;
-        return node;
-      } else if (node.right === null) {
-        node = node.left;
-        return node;
-      }
-
-      var aux = this.findMinNode(node.right);
-      node.data = aux.data;
-
-      node.right = this.removeNode(node.right, aux.data);
-      return node;
+  // Search for a value
+  search(value) {
+    let current = this.root;
+    while (current) {
+      if (value === current.value) return true;
+      current = value < current.value ? current.left : current.right;
     }
+    return false;
   }
 
-  inorder(node) {
-    if (node !== null) {
+  // In-order traversal (sorted output)
+  inorder(node = this.root) {
+    if (node) {
       this.inorder(node.left);
-      console.log(node.data);
+      console.log(node.value);
       this.inorder(node.right);
     }
   }
 
-  preorder(node) {
-    if (node !== null) {
-      console.log(node.data);
-      this.preorder(node.left);
-      this.preorder(node.right);
-    }
+  // Find the minimum value node (used for deletion)
+  _findMin(node) {
+    while (node.left) node = node.left;
+    return node;
   }
 
-  findMinNode(node) {
-    if (node.left === null) return node;
-    else return this.findMinNode(node.left);
-  }
+  // Delete a value
+  delete(value, node = this.root, parent = null) {
+    if (!node) return null;
 
-  getRootNode() {
-    return this.root;
-  }
-
-  search(node, data) {
-    if (node === null) {
-      return null;
-    } else if (data < node.data) {
-      return this.search(node.left, data);
-    } else if (data > node.data) {
-      return this.search(node.right, data);
+    if (value < node.value) {
+      node.left = this.delete(value, node.left, node);
+    } else if (value > node.value) {
+      node.right = this.delete(value, node.right, node);
     } else {
-      return node;
+      // Node with only one child or no child
+      if (!node.left) return node.right;
+      if (!node.right) return node.left;
+
+      // Node with two children: get inorder successor (min in right subtree)
+      const minLargerNode = this._findMin(node.right);
+      node.value = minLargerNode.value;
+      node.right = this.delete(minLargerNode.value, node.right, node);
     }
+
+    return node;
   }
 }
 
-// create an object for the BinarySearchTree
-var BST = new BinarySearchTree();
+const bst = new BST();
 
-// Inserting nodes to the BinarySearchTree
-BST.insert(15);
-BST.insert(25);
-BST.insert(10);
-BST.insert(7);
-BST.insert(22);
-BST.insert(17);
-BST.insert(13);
-BST.insert(5);
-BST.insert(9);
-BST.insert(27);
+bst.insert(10);
+bst.insert(5);
+bst.insert(15);
+bst.insert(3);
+bst.insert(7);
+bst.insert(12);
+bst.insert(18);
 
-//		 15
-//		 / \
-//	 10 25
-//	 / \ / \
-//	 7 13 22 27
-//	 / \ /
-// 5 9 17
+console.log("In-order Traversal:");
+bst.inorder(); // Output: 3 5 7 10 12 15 18
 
-var root = BST.getRootNode();
+console.log("Search 7:", bst.search(7)); // true
+console.log("Search 20:", bst.search(20)); // false
 
-// prints 5 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-
-// Removing node with no children
-BST.remove(5);
-
-//		 15
-//		 / \
-//	 10 25
-//	 / \ / \
-//	 7 13 22 27
-//	 \ /
-//	 9 17
-
-var root = BST.getRootNode();
-
-// prints 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-
-// Removing node with one child
-BST.remove(7);
-
-//		 15
-//		 / \
-//	 10 25
-//	 / \ / \
-//	 9 13 22 27
-//		 /
-//		 17
-
-var root = BST.getRootNode();
-
-// prints 9 10 13 15 17 22 25 27
-BST.inorder(root);
-
-// Removing node with two children
-BST.remove(15);
-
-//		 17
-//		 / \
-//	 10 25
-//	 / \ / \
-//	 9 13 22 27
-
-var root = BST.getRootNode();
-console.log("inorder traversal");
-
-// prints 9 10 13 17 22 25 27
-BST.inorder(root);
-
-console.log("postorder traversal");
-BST.postorder(root);
-console.log("preorder traversal");
-BST.preorder(root);
+bst.delete(10); // delete the root node (with two children)
+console.log("After deleting 10:");
+bst.inorder(); // Output: sorted tree without 10

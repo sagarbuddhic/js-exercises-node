@@ -1,17 +1,22 @@
-// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
-// The relative order of the elements should be kept the same.
-// Then return the number of unique elements in nums.
 // leetcode26
 
 const removeDuplicatesFromSortedArray = (nums) => {
-  let count = 1; // Initialize the count of unique elements to 1
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[i] !== nums[count - 1]) {
-      nums[count] = nums[i];
-      count++;
+  if (nums.length === 0) return 0;
+
+  let i = 0;
+
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[j] !== nums[i]) {
+      i++;
+      nums[i] = nums[j];
     }
   }
-  return count;
+
+  return i + 1; // new length
 };
 
-console.log(removeDuplicatesFromSortedArray([1, 1, 2, 2, 3, 3, 3, 4, 5]));
+let nums = [1, 1, 2, 2, 3];
+let length = removeDuplicatesFromSortedArray(nums);
+
+console.log(length); // Output: 3
+console.log(nums.slice(0, length)); // Output: [1, 2, 3]
