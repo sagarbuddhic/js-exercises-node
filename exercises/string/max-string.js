@@ -1,4 +1,5 @@
 // string with maximum length in an array of strings.
+
 function maxString(arr) {
   if (!arr || !arr.length) {
     return;
@@ -9,4 +10,4 @@ function maxString(arr) {
   });
 }
 
-console.log(maxString(['ddd', 'dddddd', 'dddd', 'dddd', 'dd']));
+console.log(maxString(["ddd", "dddddd", "dddd", "dddd", "dd"]));
