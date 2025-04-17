@@ -8,7 +8,10 @@
 const runningSum = (nums) => {
   let temp = 0;
 
-  return nums.map((val) => (temp = temp + val));
+  return nums.map((val) => {
+    temp = temp + val;
+    return temp;
+  });
 };
 
 console.log(runningSum([1, 2, 3, 4]));
