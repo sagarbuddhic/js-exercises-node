@@ -1,30 +1,24 @@
 // leetcode22
 
 const generateParenthesis = (n) => {
-  let stack = [];
   let res = [];
 
-  function backtrack(open, close) {
-    console.log("open", open);
+  function backtrack(open, close, current) {
     if (open === close && n === close) {
-      res.push(stack.join(""));
+      res.push(current);
       return;
     }
 
     if (open < n) {
-      stack.push("(");
-      backtrack(open + 1, close);
-      stack.pop();
+      backtrack(open + 1, close, current + "(");
     }
 
     if (close < open) {
-      stack.push(")");
-      backtrack(open, close + 1);
-      stack.pop();
+      backtrack(open, close + 1, current + ")");
     }
   }
 
-  backtrack(0, 0);
+  backtrack(0, 0, "");
 
   return res;
 };
