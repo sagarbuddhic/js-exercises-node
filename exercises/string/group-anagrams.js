@@ -1,15 +1,14 @@
 const groupAnagrams = (inputArr) => {
-  let groupMapping = new Map();
+  let groupAnagrams = new Map();
 
   inputArr.forEach((inputVal) => {
     let sorted = [...inputVal].sort().join("");
-    let setVal = groupMapping.has(sorted)
-      ? [...groupMapping.get(sorted), inputVal]
+    let mapVal = groupAnagrams.has(sorted)
+      ? [...groupAnagrams.get(sorted), inputVal]
       : [inputVal];
-    groupMapping.set(sorted, setVal);
+    groupAnagrams.set(sorted, mapVal);
   });
-
-  return Array.from(groupMapping.values());
+  return Array.from(groupAnagrams.entries());
 };
 
 const inputArr = ["eat", "tea", "tan", "ate", "nat", "bat"];
