@@ -1,24 +1,21 @@
 //leetcode11
 
-const mostWater = (height) => {
-  let res = 0;
+const mostWaterContainer = (inputArr) => {
   let left = 0;
-  let right = height.length - 1;
+  let right = inputArr.length - 1;
+  let res = 0;
 
   while (left < right) {
-    // calculate area
-    let area = (right - left) * Math.min(height[left], height[right]);
-    // max result
-    res = Math.max(res, area);
+    let area = (right - left) * Math.min(inputArr[left], inputArr[right]);
+    res = Math.max(area, res);
 
-    // increase pointer
-    if (height[left] < height[right]) {
-      left = left + 1;
+    if (inputArr[left] < inputArr[right]) {
+      left++;
     } else {
-      right = right - 1;
+      right--;
     }
   }
   return res;
 };
 
-console.log(mostWater([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+console.log(mostWaterContainer([1, 8, 6, 2, 5, 4, 8, 3, 7]));
