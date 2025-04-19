@@ -1,29 +1,22 @@
 // Given array of integers, find the biggest sum when two or more array elements are added.
 // Elements can be negative.
 // Example: [3, 2, -6, 4, 0] - biggest sum - 5
-function maxSum(values) {
-  if (values.length < 2) {
-    return values[0];
-  }
-  let bigSlice = [];
-  let sum = values[0] + values[1];
 
-  for (let i = 0; i < values.length; i++) {
-    for (let j = i + 1; j < values.length; j++) {
-      let sliced = values.slice(i, j + 1);
-      let sumed = sliced.reduce((prev, curr) => {
-        return prev + curr;
-      });
-      if (sumed > sum) {
-        bigSlice = [];
-        bigSlice.push(sliced);
-        sum = sumed;
-      }
+function maxSum(nums) {
+  let maxSum = -Infinity;
+
+  for (let start = 0; start < nums.length; start++) {
+    let sum = 0;
+    for (let end = start; end < nums.length; end++) {
+      sum += nums[end]; // build sum on the fly
+      maxSum = Math.max(maxSum, sum);
     }
   }
-  return { slice: bigSlice, sum: sum };
+
+  return maxSum;
 }
 
-let max = maxSum([3, 1, 6, -4, 0]);
+// output 6
+let max = maxSum([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
 
 console.log(max);
