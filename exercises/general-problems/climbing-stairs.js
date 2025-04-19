@@ -7,9 +7,9 @@ const climbStairs = (input) => {
   let b = 2;
 
   for (let i = 3; i <= input; i++) {
-    let temp = a + b;
+    let sum = a + b;
     a = b;
-    b = temp;
+    b = sum;
   }
 
   return b;
