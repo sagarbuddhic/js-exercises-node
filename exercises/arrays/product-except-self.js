@@ -16,7 +16,9 @@ const productExceptSelf = (nums) => {
     result[i] *= rightProd;
     rightProd *= nums[i];
   }
+
   return result;
 };
 
-console.log(productExceptSelf([1, 2, 3, 4]));
+console.log(productExceptSelf([2, 5, 10, 20]));
+// [1000, 400, 200, 100]
