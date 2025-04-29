@@ -8,7 +8,7 @@ const groupAnagrams = (inputArr) => {
       : [inputVal];
     groupAnagrams.set(sorted, mapVal);
   });
-  return Array.from(groupAnagrams.entries());
+  return Array.from(groupAnagrams.values());
 };
 
 const inputArr = ["eat", "tea", "tan", "ate", "nat", "bat"];

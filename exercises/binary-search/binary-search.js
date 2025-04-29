@@ -20,6 +20,6 @@ let doesExist = (arr, val) => {
   return -1;
 };
 
-const output = doesExist([-1, 0, 3, 5, 9, 12], 13);
+const output = doesExist([-1, 0, 3, 5, 9, 12], 12);
 
 console.log(output);
