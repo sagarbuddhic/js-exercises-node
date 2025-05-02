@@ -1,4 +1,4 @@
-// Component
+// Component - open for extension, closed for modification
 class Coffee {
   cost() {
     return 5;
