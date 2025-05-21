@@ -1,15 +1,15 @@
 // Given array of integers, find the biggest sum when two or more array elements are added.
 // Elements can be negative.
-// Example: [3, 2, -6, 4, 0] - biggest sum - 5
+// leetcode53 - Maximum Subarray
 
 function maxSum(nums) {
   let maxSum = -Infinity;
 
-  for (let start = 0; start < nums.length; start++) {
+  for (let i = 0; i < nums.length; i++) {
     let sum = 0;
-    for (let end = start; end < nums.length; end++) {
-      sum += nums[end]; // build sum on the fly
-      maxSum = Math.max(maxSum, sum);
+    for (let j = i; j < nums.length; j++) {
+      sum += nums[j];
+      maxSum = Math.max(sum, maxSum);
     }
   }
 

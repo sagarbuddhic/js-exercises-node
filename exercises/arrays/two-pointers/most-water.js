@@ -15,6 +15,7 @@ const mostWaterContainer = (inputArr) => {
       right--;
     }
   }
+
   return res;
 };
 
