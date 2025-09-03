@@ -3,20 +3,30 @@
 // leetcode128
 
 const longestConsecutive = (nums) => {
-  let set = new Set(nums);
-  let longest = 0;
+  // Put all numbers in a Set for O(1) lookups
+  const numSet = new Set(nums);
+  let longestStreak = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    let num = nums[i];
-    if (!set.has(num - 1)) {
-      let length = 0;
-      while (set.has(num + length)) {
-        length += 1;
-        longest = Math.max(length, longest);
+  // Loop through each number
+  for (const num of nums) {
+    // Only start counting if 'num' is the start of a sequence
+    // i.e., num - 1 doesn't exist in the set
+    if (!numSet.has(num - 1)) {
+      let currentNum = num;
+      let currentStreak = 1;
+
+      // Keep moving forward as long as consecutive numbers exist
+      while (numSet.has(currentNum + 1)) {
+        currentNum += 1;
+        currentStreak += 1;
       }
+
+      // Update the maximum streak found so far
+      longestStreak = Math.max(longestStreak, currentStreak);
     }
   }
-  return longest;
+
+  return longestStreak;
 };
 
 console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
