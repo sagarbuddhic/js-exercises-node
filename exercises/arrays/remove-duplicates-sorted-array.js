@@ -20,3 +20,5 @@ let length = removeDuplicatesFromSortedArray(nums);
 
 console.log(length); // Output: 3
 console.log(nums.slice(0, length)); // Output: [1, 2, 3]
+
+// const removeDuplicates = (nums) => [...new Set(nums)];
