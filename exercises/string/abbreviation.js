@@ -3,7 +3,7 @@ const validAbbreviation = (word, abbr) => {
   let j = 0;
 
   while (i < word.length && j < abbr.length) {
-    if (/\d/.test(abbr[j])) {
+    if (!isNaN(Number(abbr[j]))) {
       if (abbr[j] === "0") {
         return false;
       }
