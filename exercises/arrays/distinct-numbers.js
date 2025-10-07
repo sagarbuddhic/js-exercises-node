@@ -12,3 +12,9 @@ const distinctNumbers = (numbers) => {
 const distinct = distinctNumbers(process.argv.slice(2));
 
 console.log(distinct);
+
+let arr = [1, 3, 2];
+
+console.log(new Set(arr));
+
+console.log([...new Set(arr)]);

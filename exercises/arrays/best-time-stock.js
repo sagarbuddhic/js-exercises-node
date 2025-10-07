@@ -1,5 +1,6 @@
 // best time to buy stocks
 // leetcode121
+// You may buy once and sell once (must buy before selling).
 
 var maxProfit = function (prices) {
   let lowestSellPrice = prices[0];

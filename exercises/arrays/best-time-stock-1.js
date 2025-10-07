@@ -1,5 +1,5 @@
 // best time stock
-// leetcode122
+//  You may complete as many transactions as you like (i.e. buy one day and sell another, multiple times), with the constraints
 
 var maxProfit = function (prices) {
   let totalProfit = 0;
