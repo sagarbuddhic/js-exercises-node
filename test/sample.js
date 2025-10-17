@@ -1,3 +1,5 @@
-function sample(arr) {}
+function sample(arr) {
+  console.log(arr);
+}
 
-sample(arr);
+sample([1, 2]);

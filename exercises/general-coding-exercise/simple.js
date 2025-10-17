@@ -6,6 +6,10 @@ console.log("Minus", "5" - 2); // 3 - for minus integer will be parsed from stri
 
 console.log("Multiply", "x" * 2); // NAN - x is parsed and it is NAN.
 
+console.log([1, 2, 3] + [4, 5, 6]); // "1,2, 34, 5, 6"
+
+console.log("9" - 10 + 2 + "9"); // "19"
+
 console.log("Decimal addition", 0.1 + 0.2);
 
 const numArray = [0, 1, 2, 3];

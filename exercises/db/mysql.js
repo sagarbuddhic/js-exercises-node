@@ -15,3 +15,7 @@ connection.connect((err) => {
     console.log(`result: ${JSON.stringify(result)}`);
   });
 });
+
+const conn = mysql.createConnection({
+  host: "localhost",
+});
